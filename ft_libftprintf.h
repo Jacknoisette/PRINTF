@@ -13,6 +13,7 @@
 #ifndef LIBFTPRINTF_H
 # define LIBFTPRINTF_H
 
+#include <stdarg.h>
 # include "../../Cercle00/Libft/libft.h"
 
 

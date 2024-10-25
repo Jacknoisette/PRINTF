@@ -10,4 +10,17 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+# include "ft_libftprintf.h"
+
+int ft_printf(const char *string, ...)
+{
+	int	i;
+	char	c;
+	va_list	args;
+
+	va_start(args, string)
+	
+
+
+	va_end(args);
+}
