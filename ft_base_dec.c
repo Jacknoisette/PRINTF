@@ -55,9 +55,10 @@ int ft_check_base_dec(char *numb)
 	return (base);
 }
 
+/*
 char ft_hex_to_dec(char *numb, int *i)
 {
-	char	hexa;
+	char	*hexa;
 	int			j;
 	int			k;
 
@@ -70,10 +71,11 @@ char ft_hex_to_dec(char *numb, int *i)
 	{
 		while(numb[*i] != hexa[j])
 			j++;
-		k += j
+		k += j;
 		i++;
 	}
 }
+*/
 
 // char ft_base_dec(char *numb)
 // {
@@ -96,7 +98,7 @@ char ft_hex_to_dec(char *numb, int *i)
 
 int main(void)
 {
-	char	i[] = "0";
+	char	i[] = "0xA";
 	
-	printf("%d", ft_check_base_dec(i));
+	printf("%d\n", ft_check_base_dec(i));
 }
