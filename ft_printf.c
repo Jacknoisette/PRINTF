@@ -27,9 +27,9 @@ static int handle_format(char chr, va_list args)
 	else if (chr == '%')
 		count += ft_putchar_n('%');
 	else if (chr == 'x')
-		count += ft_puthexamin_n(va_arg(args, int));
+		count += ft_puthexamin_n(va_arg(args, unsigned int));
 	else if (chr == 'X')
-		count += ft_puthexamaj_n(va_arg(args, int));
+		count += ft_puthexamaj_n(va_arg(args, unsigned int));
 	return (count);
 }
 

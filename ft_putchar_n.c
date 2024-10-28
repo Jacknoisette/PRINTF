@@ -12,7 +12,7 @@
 
 #include "ft_libftprintf.h"
 
-static int ft_putchar_n(char c)
+int ft_putchar_n(char c)
 {
     return write(1, &c, 1);
 }

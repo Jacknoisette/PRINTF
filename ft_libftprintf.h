@@ -15,8 +15,13 @@
 
 # include <stdarg.h>
 # include <unistd.h>
+#include <stdio.h>
 //# include "../../Cercle00/Libft/libft.h"
 
-
+int ft_printf(const char *string, ...);
+int ft_putchar_n(char c);
+int ft_putstr_n(char *str);
+int	ft_putunnbr_n(unsigned int n);
+int	ft_putnbr_n(int n);
 
 #endif

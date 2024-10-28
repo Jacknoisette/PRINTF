@@ -12,10 +12,12 @@
 
 #include "ft_libftprintf.h"
 
-int	ft_putnbr_fd(int n)
+int	ft_putnbr_n(int n)
 {
-	char	i;
+	int	i;
+    char    c;
 
+    i = 0;
 	if (n == -2147483648)
 	{
 		write(1, "-2147483648", 11);
@@ -28,8 +30,19 @@ int	ft_putnbr_fd(int n)
         i++;
 	}
 	if (n >= 10)
-		ft_putnbr_fd(n / 10);
-	i = (n % 10) + '0';
-	write(1, &i, 1);
+		i += ft_putnbr_n(n / 10);
+    i ++;
+	c = (n % 10) + '0';
+	write(1, &c, 1);
     return (i);
 }
+
+/*
+int main(void)
+{
+    int i;
+
+    i = ft_putnbr_n(-1400);
+    printf("\n%d\n", i);
+}
+*/

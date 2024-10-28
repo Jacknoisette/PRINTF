@@ -12,14 +12,14 @@
 
 #include "ft_libftprintf.h"
 
-static int ft_putstr_n(char *str)
+int ft_putstr_n(char *str)
 {
     int i;
     
     i = 0;
     while (str[i] != '\0')
     {
-        ft_putchar_n(str[i]);
+        write(1, &str[i], 1);
         i++;
     }
     return (i);
