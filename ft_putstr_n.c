@@ -10,17 +10,21 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_libftprintf.h"
+#include "ft_printf.h"
 
-int ft_putstr_n(char *str)
+int	ft_putstr_n(char *str)
 {
-    int i;
-    
-    i = 0;
-    while (str[i] != '\0')
-    {
-        write(1, &str[i], 1);
-        i++;
-    }
-    return (i);
+	int	i;
+
+	i = 0;
+	if (str == 0)
+	{
+		return (ft_putstr_n("(null)"));
+	}
+	while (str[i] != '\0')
+	{
+		write(1, &str[i], 1);
+		i++;
+	}
+	return (i);
 }

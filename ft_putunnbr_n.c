@@ -10,20 +10,20 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_libftprintf.h"
+#include "ft_printf.h"
 
 int	ft_putunnbr_n(unsigned int n)
 {
 	unsigned int	i;
-    char    c;
+	char			c;
 
-    i = 0;
+	i = 0;
 	if (n >= 10)
 		i += ft_putunnbr_n(n / 10);
-    i ++;
+	i ++;
 	c = (n % 10) + '0';
 	write(1, &c, 1);
-    return (i);
+	return (i);
 }
 
 /*

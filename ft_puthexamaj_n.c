@@ -10,22 +10,22 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_libftprintf.h"
+#include "ft_printf.h"
 
 int	ft_puthexamaj_n(unsigned int n)
 {
 	unsigned int	i;
-    char    c;
-    char    *hex;
+	char			c;
+	char			*hex;
 
-    i = 0;
-    hex = "0123456789ABCDEF";
+	i = 0;
+	hex = "0123456789ABCDEF";
 	if (n >= 16)
 		i += ft_puthexamaj_n(n / 16);
-    i ++;
+	i ++;
 	c = (hex[n % 16]);
 	write(1, &c, 1);
-    return (i);
+	return (i);
 }
 
 /*

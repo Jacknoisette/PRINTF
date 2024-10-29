@@ -10,14 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_libftprintf.h"
+#include "ft_printf.h"
+#include <limits.h>
 
-static int handle_format(char chr, va_list args)
+static int	check_string(char chr, va_list args)
 {
-	int count = 0;
+	int	count;
 
+	count = 0;
 	if (chr == 'c')
-		count += ft_putcha_n(va_arg(args, int));
+		count += ft_putchar_n(va_arg(args, int));
 	else if (chr == 's')
 		count += ft_putstr_n(va_arg(args, char *));
 	else if (chr == 'd' || chr == 'i')
@@ -30,21 +32,24 @@ static int handle_format(char chr, va_list args)
 		count += ft_puthexamin_n(va_arg(args, unsigned int));
 	else if (chr == 'X')
 		count += ft_puthexamaj_n(va_arg(args, unsigned int));
+	else if (chr == 'p')
+		count += ft_putp_n(va_arg(args, void *));
 	return (count);
 }
 
-int ft_printf(const char *string, ...)
+int	ft_printf(const char *string, ...)
 {
-	int	i;
-	int	count;
 	va_list	args;
+	int		i;
+	int		count;
 
+	i = 0;
 	va_start(args, string);
 	while (string[i] != '\0')
 	{
 		if (string[i] == '%' )
 		{
-			count += handle_format(string[i + 1], args);
+			count += check_string(string[i + 1], args);
 			i++;
 		}
 		else
@@ -54,3 +59,34 @@ int ft_printf(const char *string, ...)
 	va_end(args);
 	return (count);
 }
+
+/*
+int	main(void)
+{
+	char	*c = "hello";
+	int	i = 0;
+
+	ft_printf("::::%c:::::%c",'e','\n');
+	printf("::::%c:::::%c",'e','\n');
+	ft_printf("_________\n");
+	ft_printf("Voici le nombre %d\n", -765950);
+	printf("Voici le nombre %d\n", -765950);
+	ft_printf("_________\n");
+	ft_printf("Voici le nombre %i\n", -765950);
+	printf("Voici le nombre %i\n", -765950);
+	ft_printf("_________\n");
+	ft_printf("Voici le nombre %u\n", 2147483647);
+	printf("Voici le nombre %u\n", 2147483647);
+	ft_printf("_________\n");
+	ft_printf("Voici le pointeur %p,%p\n", (void *)0, (void *)0);
+	printf("Voici le pointeur %p,%p\n", (void *)0, (void *)0);
+	ft_printf("_________\n");
+	i = ft_printf(" NULL %s NULL \n", (char *)NULL);
+	printf("%d", i);
+	i = printf(" NULL %s NULL \n", (char *)NULL);
+	printf("%d", i);
+	ft_printf("_________\n");
+	ft_printf("Voici un %%\n");
+	printf("Voici un %%\n");
+}
+*/
