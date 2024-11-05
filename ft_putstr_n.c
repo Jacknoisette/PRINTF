@@ -28,3 +28,12 @@ int	ft_putstr_n(char *str)
 	}
 	return (i);
 }
+
+/*
+int	main(void)
+{
+	char *st = "hello";
+	
+	printf("%d\n", ft_putstr_n(st));
+}
+*/

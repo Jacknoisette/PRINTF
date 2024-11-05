@@ -37,12 +37,10 @@ int	ft_putnbr_n(int n)
 	return (i);
 }
 
-/*
-int main(void)
-{
-    int i;
+// int main(void)
+// {
+//     int i;
 
-    i = ft_putnbr_n(-1400);
-    printf("\n%d\n", i);
-}
-*/
+//     i = ft_putnbr_n(-1400);
+//     printf("\n%d\n", i);
+// }

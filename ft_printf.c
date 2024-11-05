@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <limits.h>
 
 static int	check_string(char chr, va_list args)
 {
@@ -19,21 +18,21 @@ static int	check_string(char chr, va_list args)
 
 	count = 0;
 	if (chr == 'c')
-		count += ft_putchar_n(va_arg(args, int));
+		count = ft_putchar_n(va_arg(args, int));
 	else if (chr == 's')
-		count += ft_putstr_n(va_arg(args, char *));
+		count = ft_putstr_n(va_arg(args, char *));
 	else if (chr == 'd' || chr == 'i')
-		count += ft_putnbr_n(va_arg(args, int));
-	else if (chr == 'u' || chr == 'i')
-		count += ft_putunnbr_n(va_arg(args, unsigned int));
+		count = ft_putnbr_n(va_arg(args, int));
+	else if (chr == 'u')
+		count = ft_putunnbr_n(va_arg(args, unsigned int));
 	else if (chr == '%')
-		count += ft_putchar_n('%');
+		count = ft_putchar_n('%');
 	else if (chr == 'x')
-		count += ft_puthexamin_n(va_arg(args, unsigned int));
+		count = ft_puthexamin_n(va_arg(args, unsigned int));
 	else if (chr == 'X')
-		count += ft_puthexamaj_n(va_arg(args, unsigned int));
+		count = ft_puthexamaj_n(va_arg(args, unsigned int));
 	else if (chr == 'p')
-		count += ft_putp_n(va_arg(args, void *));
+		count = ft_putp_n(va_arg(args, void *));
 	return (count);
 }
 
@@ -44,6 +43,7 @@ int	ft_printf(const char *string, ...)
 	int		count;
 
 	i = 0;
+	count = 0;
 	va_start(args, string);
 	while (string[i] != '\0')
 	{
@@ -60,33 +60,27 @@ int	ft_printf(const char *string, ...)
 	return (count);
 }
 
-/*
-int	main(void)
-{
-	char	*c = "hello";
-	int	i = 0;
+// int	main(void)
+// {
+// 	ft_printf("::::%c:::::%c",'e','\n');
+// 	printf("::::%c:::::%c",'e','\n');
+// 	ft_printf("_________\n");
+// 	ft_printf("Voici le nombre %d\n", -765950);
+// 	printf("Voici le nombre %d\n", -765950);
+// 	ft_printf("_________\n");
+// 	ft_printf("Voici le nombre %i\n", -765950);
+// 	printf("Voici le nombre %i\n", -765950);
+// 	ft_printf("_________\n");
+// 	ft_printf("Voici le nombre %u\n", 2147483647);
+// 	printf("Voici le nombre %u\n", 2147483647);
+// 	ft_printf("_________\n");
+// 	ft_printf("Voici le pointeur %p,%p\n", (void *)0, (void *)0);
+// 	printf("Voici le pointeur %p,%p\n", (void *)0, (void *)0);
+// 	ft_printf("_________\n");
+// 	ft_printf("_________\n");
+// 	ft_printf("Voici un %%\n");
+// 	printf("Voici un %%\n");
+// 	ft_printf("%d\n", ft_printf("%s\n", "Hello"));
+// 	printf("%d\n", printf("%s\n", "Hello"));
+// }
 
-	ft_printf("::::%c:::::%c",'e','\n');
-	printf("::::%c:::::%c",'e','\n');
-	ft_printf("_________\n");
-	ft_printf("Voici le nombre %d\n", -765950);
-	printf("Voici le nombre %d\n", -765950);
-	ft_printf("_________\n");
-	ft_printf("Voici le nombre %i\n", -765950);
-	printf("Voici le nombre %i\n", -765950);
-	ft_printf("_________\n");
-	ft_printf("Voici le nombre %u\n", 2147483647);
-	printf("Voici le nombre %u\n", 2147483647);
-	ft_printf("_________\n");
-	ft_printf("Voici le pointeur %p,%p\n", (void *)0, (void *)0);
-	printf("Voici le pointeur %p,%p\n", (void *)0, (void *)0);
-	ft_printf("_________\n");
-	i = ft_printf(" NULL %s NULL \n", (char *)NULL);
-	printf("%d", i);
-	i = printf(" NULL %s NULL \n", (char *)NULL);
-	printf("%d", i);
-	ft_printf("_________\n");
-	ft_printf("Voici un %%\n");
-	printf("Voici un %%\n");
-}
-*/

@@ -42,12 +42,11 @@ int	ft_putp_n(void *n)
 	return (i);
 }
 
-/*
-int main(void)
-{
-    int i;
+// int main(void)
+// {
+//     int i;
+// 	char *str = "hello";
 
-    i = ft_putp_n(15);
-    printf("\n%d\n", i);
-}
-*/
+//     i = ft_putp_n(str);
+//     printf("\n%d\n", i);
+// }

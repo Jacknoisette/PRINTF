@@ -17,3 +17,10 @@ int	ft_putchar_n(char c)
 	write(1, &c, 1);
 	return (1);
 }
+
+// int	main(void)
+// {
+// 	char st = 'h';
+	
+// 	printf("%d\n", ft_putchar_n(st));
+// }
