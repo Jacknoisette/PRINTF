@@ -21,6 +21,5 @@ int	ft_putchar_n(char c)
 // int	main(void)
 // {
 // 	char st = 'h';
-	
 // 	printf("%d\n", ft_putchar_n(st));
 // }

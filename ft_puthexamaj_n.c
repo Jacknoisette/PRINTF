@@ -28,12 +28,9 @@ int	ft_puthexamaj_n(unsigned int n)
 	return (i);
 }
 
-
 // int main(void)
 // {
 //     int i;
-
 //     i = ft_puthexamaj_n(-15);
 //     printf("\n%d\n", i);
 // }
-

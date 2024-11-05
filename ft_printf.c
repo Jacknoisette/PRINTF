@@ -83,4 +83,3 @@ int	ft_printf(const char *string, ...)
 // 	ft_printf("%d\n", ft_printf("%s\n", "Hello"));
 // 	printf("%d\n", printf("%s\n", "Hello"));
 // }
-
